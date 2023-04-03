@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lista moderna cu task-uri</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Montserrat", sans-serif;
+        background-color: #f7f7f7;
+        color: #333;
+        margin: 0;
+      }
+      h1 {
+        text-align: center;
+        margin: 30px 0;
+      }
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 30px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+      }
+      .form {
+        display: flex;
+        margin-bottom: 30px;
+      }
+      .form input[type="text"] {
+        flex-grow: 1;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        margin-right: 20px;
+        font-size: 16px;
+      }
+      .form select {
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+        color: #333;
+        font-size: 16px;
+        font-weight: 600;
+        margin-right: 20px;
+      }
+      .form button {
+        padding: 10px 20px;
+        background-color: #1abc9c;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      .task {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+      }
+      .task.complete {
+        background-color: #f7f7f7;
+      }
+      .task.dragging {
+        opacity: 0.5;
+      }
+      .task.dragging .title {
+        cursor: grabbing;
+      }
+      .task.dragging .priority,
+      .task.dragging .due-date {
+        display: none;
+      }
+      .task .drag-handle {
+        cursor: grab;
+        margin-right: 10px;
+      }
+      .task .title {
+        flex-grow: 1;
+        font-size: 18px;
+        font-weight: 600;
+        text-decoration: none;
+        color: #333;
+        margin-right: 10px;
+      }
+      .task .priority {
+        padding: 6px 10px;
+        background-color: #e74c3c;
+        color: #fff;
+        border-radius: 5px;
+        font-size: 14px;
+        font-weight: 600;
+        margin-right: 10px;
+      }
+      .task .priority.low {
+        background-color: #f39c12;
+      }
+      .task .priority.medium {
+        background-color: #e67e22;
+      }
+      .task .priority.high {
+        background-color: #e74c3c;
+      }
+      .task .due-date {
+        padding: 6px 10px;
+        background-color: #3498db;
+        color: #fff;
+        border-radius: 5px;
+        font-size: 14px;
+        font-weight: 600;
+        margin-right: 10px;
+      }
+      .task .due-date.past {
+        background-color: #e74c3c;
+      }
+      .task .due-date.today {
+        background-color: #f1c40f;
+      }
+      .task .due-date.future {
+        background-color: #3498db;
+      }
+      .task .buttons {
+        display: flex;
+      }
+      .task .buttons button {
+        padding: 6px 10px;
+        background-color: #3498db;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        font-size: 14px;
+        font-weight: 600;
+        margin-left: 10px;
+        cursor: pointer;
+      }
+      .task .buttons button.complete {
+        background-color: #2ecc71;
+      }
+      .task .buttons button.delete {
+        background-color: #e74c3c;
+      }
+      @media screen and (max-width: 600px) {
+        .form {
+          flex-direction: column;
+        }
+        .form select {
+          margin-bottom: 10px;
+          margin-right: 0;
+        }
+        .task {
+          flex-direction: column;
+        }
+        .task .drag-handle {
+          margin-bottom: 10px;
+        }
+        .task .priority,
+        .task .due-date {
+          display: none;
+        }
+        .task .buttons button {
+          margin-left: 0;
+          margin-top: 10px;
+          width: 100%;
+        }
+      }
+    </style>
+    <script>
+      var tasks = [
+        {
+          title: "Fa cumparaturi",
+          priority: "mare",
+          dueDate: "2023-03-30",
+          complete: false,
+        },
+        {
+          title: "Spala hainele",
+          priority: "medie",
+          dueDate: "2023-03-28",
+          complete: false,
+        },
+        {
+          title: "Plateste facturile",
+          priority: "scazuta",
+          dueDate: "2023-04-05",
+          complete: true,
+        },
+        {
+          title: "Curata casa",
+          priority: "mare",
+          dueDate: "2023-04-03",
+          complete: false,
+        },
+        {
+          title: "Fa sport",
+          priority: "medie",
+          dueDate: "2023-03-29",
+          complete: true,
+        },
+        {
+          title: "Studiati",
+          priority: "scazuta",
+          dueDate: "2023-04-01",
+          complete: false,
+        },
+        {
+          title: "Plimba cainele",
+          priority: "medie",
+          dueDate: "2023-03-27",
+          complete: true,
+        },
+        {
+          title: "Arunca gunoiul",
+          priority: "scazuta",
+          dueDate: "2023-03-29",
+          complete: false,
+        },
+      ];
+
+      var dragging = null;
+
+      function displayTasks() {
+        var taskList = document.getElementById("task-list");
+        taskList.innerHTML = "";
+        for (var i = 0; i < tasks.length; i++) {
+          var task = tasks[i];
+          var taskEl = document.createElement("div");
+          taskEl.classList.add("task");
+          if (task.complete) {
+            taskEl.classList.add("complete");
+          }
+          if (dragging == i) {
+            taskEl.classList.add("dragging");
+          }
+          taskEl.innerHTML = `
+				<div class="drag-handle" draggable="true" ondragstart="startDrag(${i})"></div>
+				<div class="title">${task.title}</div>
+				<div class="priority ${task.priority.toLowerCase()}">${task.priority}</div>
+				<div class="due-date ${getDueDateClass(task.dueDate)}">${formatDueDate(
+            task.dueDate
+          )}</div>
+				<div class="buttons">
+					<button class="complete" onclick="completeTask(${i})">Complete</button>
+					<button class="delete" onclick="deleteTask(${i})">Delete</button>
+				</div>
+			`;
+          taskList.appendChild(taskEl);
+        }
+      }
+
+      function addTask() {
+        var input = document.getElementById("task-input");
+        var select = document.getElementById("task-priority");
+        var dueDate = document.getElementById("task-due-date").value;
+        var task = {
+          title: input.value,
+          priority: select.value,
+          dueDate: dueDate,
+          complete: false,
+        };
+        tasks.push(task);
+        displayTasks();
+        input.value = "";
+        select.selectedIndex = 0;
+        document.getElementById("task-due-date").value = "";
+      }
+
+      function deleteTask(index) {
+        tasks.splice(index, 1);
+        displayTasks();
+      }
+
+      function completeTask(index) {
+        tasks[index].complete = true;
+        displayTasks();
+      }
+
+      function formatDueDate(dueDate) {
+        var date = new Date(dueDate);
+        return `${date.toLocaleDateString()} ${date.toLocaleTimeString([], {
+          hour: "2-digit",
+          minute: "2-digit",
+        })}`;
+      }
+
+      function getDueDateClass(dueDate) {
+        var date = new Date(dueDate);
+        var now = new Date();
+        if (date < now) {
+          return "past";
+        } else if (date.toDateString() == now.toDateString()) {
+          return "today";
+        } else {
+          return "future";
+        }
+      }
+
+      function sortTasks() {
+        tasks.sort(function (a, b) {
+          if (a.complete && !b.complete) {
+            return 1;
+          } else if (!a.complete && b.complete) {
+            return -1;
+          } else if (a.dueDate && !b.dueDate) {
+            return -1;
+          } else if (!a.dueDate && b.dueDate) {
+            return 1;
+          } else if (a.priority == b.priority) {
+            return new Date(a.dueDate) - new Date(b.dueDate);
+          } else {
+            var priorityOrder = ["high", "medium", "low"];
+            return (
+              priorityOrder.indexOf(b.priority) -
+              priorityOrder.indexOf(a.priority)
+            );
+          }
+        });
+        displayTasks();
+      }
+
+      function startDrag(index) {
+        dragging = index;
+        displayTasks();
+      }
+      function endDrag() {
+        var taskList = document.getElementById("task-list");
+        for (var i = 0; i < taskList.children.length; i++) {
+          var taskEl = taskList.children[i];
+          taskEl.classList.remove("dragging");
+        }
+        if (dragging != null) {
+          sortTasks();
+        }
+        dragging = null;
+      }
+
+      document.addEventListener("mouseup", endDrag);
+      document.addEventListener("touchend", endDrag);
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Lista moderna de task-uri</h1>
+      <div class="form">
+        <input type="text" id="task-input" placeholder="Adaugati task" />
+        <select id="task-priority">
+          <option value="High">Mare</option>
+          <option value="Medium">Medie</option>
+          <option value="Low">Scazuta</option>
+        </select>
+        <input type="datetime-local" id="task-due-date" />
+        <button onclick="addTask()">Adaugati task</button>
+      </div>
+      <div id="task-list">
+        <!-- tasks will be added dynamically here -->
+      </div>
+    </div>
+  </body>
+</html>

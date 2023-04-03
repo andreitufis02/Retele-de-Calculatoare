@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Filterable List</title>
+    <style>
+      ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+      }
+      li {
+        margin: 10px 0;
+        padding: 10px;
+        background-color: #f2f2f2;
+        border-radius: 5px;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      input[type="text"] {
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        margin-bottom: 10px;
+      }
+    </style>
+    <script>
+      function filterList() {
+        var input, filter, ul, li, a, i, txtValue;
+        input = document.getElementById("input");
+        filter = input.value.toUpperCase();
+        ul = document.getElementById("list");
+        li = ul.getElementsByTagName("li");
+        for (i = 0; i < li.length; i++) {
+          a = li[i].getElementsByTagName("span")[0];
+          txtValue = a.textContent || a.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+          } else {
+            li[i].style.display = "none";
+          }
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h2>Listă filtrabilă</h2>
+    <input type="text" placeholder="Filter" onkeyup="filterList()" id="input" />
+    <ul id="list">
+      <li><span>Mere</span><button>Delete</button></li>
+      <li><span>Banane</span><button>Delete</button></li>
+      <li><span>Cireșe</span><button>Delete</button></li>
+      <li><span>Lubenițe</span><button>Delete</button></li>
+      <li><span>Ardei</span><button>Delete</button></li>
+      <li><span>Castraveți</span><button>Delete</button></li>
+    </ul>
+  </body>
+</html>

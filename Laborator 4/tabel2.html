@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <style>
+    table {
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      padding: 10px;
+      text-align: center;
+    }
+    th {
+      background-color: yellow;
+    }
+    td {
+      background-color: green;
+    }
+    tr:nth-child(even) td {
+      background-color: magenta;
+    }
+    .zoom {
+      transition: transform .2s;
+    }
+    .zoom:hover {
+      transform: scale(1.5);
+    }
+  </style>
+  <table border="2", bgcolor=green cellspacing="4", padding="10" cellpadding="10", align="center" cellpadding="center">
+        <tr>
+          <th>Nr. crt.</th>
+          <th>Nume</th>
+          <th>Prenume</th>
+          <th>An</th>
+          <th>Specializare</th>
+          <th>Grupa</th>
+        </tr>
+        <tr>
+          <td>
+            <img src="https://png.pngtree.com/png-clipart/20210123/ourmid/pngtree-black-colorful-number-1-png-image_2786493.jpg" width="70" height="70" class="zoom">
+          </td>
+          <td>Tufis</td>
+          <td>Andrei</td>
+          <td>2</td>
+          <td>IE</td>
+          <td>4</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Ionescu</td>
+          <td>Mihai</td>
+          <td>2</td>
+          <td>CIG</td>
+          <td>2</td>
+        </tr>
+      </table>     
+</html>

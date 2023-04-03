@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Salariati & Populatie Website</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3@6.7.0/dist/d3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#line-chart">Line Chart</a></li>
+            <li><a href="#bar-chart">Bar Chart</a></li>
+            <li><a href="#stacked-area-chart">Stacked Area Chart</a></li>
+            <li><a href="#pie-chart">Pie Chart</a></li>
+            <li><a href="#about-us">About Us</a></li>
+        </ul>
+    </nav>
+
+    <section id="line-chart">
+        <h2>Number of Employees (Salariati) Over the Years</h2>
+        <canvas id="lineChart"></canvas>
+    </section>
+
+    <section id="bar-chart">
+        <h2>Distribution of Employees (Salariati) by Regions (Regiune)</h2>
+        <canvas id="barChart"></canvas>
+    </section>
+
+    <section id="stacked-area-chart">
+        <h2>Distribution of Active Population (Populatia de varsta activa) by Regions (Regiune) Over the Years</h2>
+        <div id="stackedAreaChart"></div>
+    </section>
+
+    <section id="pie-chart">
+        <h2>Percentage Distribution of Population (Populatia) by Regions (Regiune)</h2>
+        <div id="pieChart"></div>
+    </section>
+
+    <section id="about-us">
+        <h2>About Us</h2>
+        <p>This website was created by [Your Name Here]. The data used in this website is from [Data Source Here].</p>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

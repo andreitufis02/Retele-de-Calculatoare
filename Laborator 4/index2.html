@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registru intrări și ieșiri</title>
+	<style>
+		table {
+			border-collapse: collapse;
+			width: 100%;
+		}
+
+		table th, table td {
+			padding: 8px;
+			text-align: left;
+			border-bottom: 1px solid #ddd;
+		}
+
+		table th {
+			background-color: #f2f2f2;
+		}
+
+		ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+		}
+
+		li {
+			margin: 10px 0;
+			padding: 10px;
+			background-color: #f2f2f2;
+			box-shadow: 2px 2px 5px #ccc;
+			border-radius: 5px;
+			overflow: hidden;
+		}
+
+		li .date {
+			float: left;
+			font-weight: bold;
+			margin-right: 10px;
+		}
+
+		li .type {
+			float: right;
+			font-weight: bold;
+			margin-left: 10px;
+		}
+
+		li .description {
+			clear: both;
+			margin-top: 5px;
+		}
+	</style>
+</head>
+<body>
+
+	<h1>Registru intrări și ieșiri</h1>
+	<h2>Registru tabelar</h2>
+	<table border="1">
+		<thead>
+			<tr>
+				<th>Data</th>
+				<th>Tipul</th>
+				<th>Descriere</th>
+				<th>Suma</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>01.03.2023</td>
+				<td>Intrare</td>
+				<td>Achiziționare rechizite</td>
+				<td>200 RON</td>
+			</tr>
+			<tr>
+				<td>05.03.2023</td>
+				<td>Ieșire</td>
+				<td>Plată utilități</td>
+				<td>400 RON</td>
+			</tr>
+			<tr>
+				<td>10.03.2023</td>
+				<td>Intrare</td>
+				<td>Vânzare produse</td>
+				<td>1000 RON</td>
+			</tr>
+			<tr>
+				<td>12.03.2023</td>
+				<td>Intrare</td>
+				<td>Transfer bancar</td>
+				<td>500 RON</td>
+			</tr>
+			<tr>
+				<td>15.03.2023</td>
+				<td>Ieșire</td>
+				<td>Plată chirie</td>
+				<td>800 RON</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<h2>Registru în format listă</h2>
+	<ul>
+		<li>
+			<span class="date">01.03.2023</span>
+			<span class="type">Intrare</span>
+			<span class="description">Achiziționare rechizite</span>
+			<span class="amount">200 RON</span>
+		</<li>
+		<span class="date">05.03.2023</span>
+		<span class="type">Ieșire</span>
+		<span class="description">Plată utilități</span>
+		<span class="amount">400 RON</span>
+	</li>
+	<li>
+		<span class="date">10.03.2023</span>
+		<span class="type">Intrare</span>
+		<span class="description">Vânzare produse</span>
+		<span class="amount">1000 RON</span>
+	</li>
+	<li>
+		<span class="date">12.03.2023</span>
+		<span class="type">Intrare</span>
+		<span class="description">Transfer bancar</span>
+		<span class="amount">500 RON</span>
+	</li>
+	<li>
+		<span class="date">15.03.2023</span>
+		<span class="type">Ieșire</span>
+		<span class="description">Plată chirie</span>
+		<span class="amount">800 RON</span>
+	</li>
+</ul>

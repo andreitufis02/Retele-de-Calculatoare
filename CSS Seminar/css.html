@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile Page</title>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Navbar top -->
+    <div class="navbar-top">
+      <div class="title">
+        <h1>Profil</h1>
+      </div>
+
+      <!-- Navbar -->
+      <ul>
+        <li>
+          <a href="#message">
+            <span class="icon-count">69</span>
+            <i class="fa fa-envelope fa-2x"></i>
+          </a>
+        </li>
+        <li>
+          <a href="#notification">
+            <span class="icon-count">420</span>
+            <i class="fa fa-bell fa-2x"></i>
+          </a>
+        </li>
+        <li>
+          <a href="login.html">
+            <i class="fa fa-sign-out-alt fa-2x"></i>
+          </a>
+        </li>
+      </ul>
+      <!-- End -->
+    </div>
+    <!-- End -->
+
+    <!-- Sidenav -->
+    <div class="sidenav">
+      <div class="profile">
+        <img
+          src="data:image/png;base64,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"
+          alt=""
+          width="100"
+          height="100"
+        />
+
+        <div class="name">Andrei Tufiș</div>
+        <div class="job">Băgător de seamă</div>
+      </div>
+
+      <div class="sidenav-url">
+        <div class="url">
+          <a href="#profile" class="active">Profil</a>
+          <hr align="center" />
+        </div>
+        <div class="url">
+          <a href="#settings">Setări</a>
+          <hr align="center" />
+        </div>
+      </div>
+    </div>
+    <!-- End -->
+
+    <!-- Main -->
+    <div class="main">
+      <h2>Despre mine</h2>
+      <div class="card">
+        <div class="card-body">
+          <i class="fa fa-pen fa-xs edit"></i>
+          <table>
+            <tbody>
+              <tr>
+                <td>Nume</td>
+                <td>:</td>
+                <td>Andrei Tufiș</td>
+              </tr>
+              <tr>
+                <td>Email</td>
+                <td>:</td>
+                <td>tancfinanciar@wallstreet.net</td>
+              </tr>
+              <tr>
+                <td>Adresă</td>
+                <td>:</td>
+                <td>Fierbinți-Târg, Ialomița</td>
+              </tr>
+              <tr>
+                <td>Hobby-uri</td>
+                <td>:</td>
+                <td>Aruncatul cu privirea, Datul cu părerea</td>
+              </tr>
+              <tr>
+                <td>Job</td>
+                <td>:</td>
+                <td>N-am</td>
+              </tr>
+              <tr>
+                <td>Skill-uri</td>
+                <td>:</td>
+                <td>Nici atât</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <h2>Social media</h2>
+      <div class="card">
+        <div class="card-body">
+          <i class="fa fa-pen fa-xs edit"></i>
+          <div class="social-media">
+            <span class="fa-stack fa-sm">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
+            </span>
+            <span class="fa-stack fa-sm">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            <span class="fa-stack fa-sm">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+            </span>
+            <span class="fa-stack fa-sm">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-invision fa-stack-1x fa-inverse"></i>
+            </span>
+            <span class="fa-stack fa-sm">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            <span class="fa-stack fa-sm">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-whatsapp fa-stack-1x fa-inverse"></i>
+            </span>
+            <span class="fa-stack fa-sm">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-snapchat fa-stack-1x fa-inverse"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End -->
+  </body>
+</html>

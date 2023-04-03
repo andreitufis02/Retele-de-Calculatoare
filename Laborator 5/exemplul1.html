@@ -1,0 +1,434 @@
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+  }
+
+  form {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 20px auto;
+    max-width: 600px;
+    padding: 20px;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+    margin-top: 1.5rem;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="number"],
+  select,
+  textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  input[type="tel"]:focus,
+  input[type="number"]:focus,
+  select:focus,
+  textarea:focus {
+    outline: none;
+    border-color: #4caf50;
+    box-shadow: 0 0 5px #4caf50;
+  }
+
+  small {
+    font-size: 0.8rem;
+    color: #777;
+    display: block;
+    margin-top: 5px;
+  }
+
+  button[type="submit"] {
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+
+  button[type="submit"]:hover {
+    background-color: #2e8b57;
+  }
+  /* Loader */
+  .loader {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #4caf50;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 2s linear infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* Dark theme */
+  .dark-theme {
+    background-color: #333;
+  }
+
+  .dark-theme form {
+    background-color: #444;
+    color: #fff;
+  }
+
+  .dark-theme input[type="text"],
+  .dark-theme input[type="email"],
+  .dark-theme input[type="tel"],
+  .dark-theme input[type="number"],
+  .dark-theme select,
+  .dark-theme textarea {
+    background-color: #555;
+    color: #fff;
+  }
+
+  .dark-theme small {
+    color: #aaa;
+  }
+
+  .dark-theme button[type="submit"] {
+    background-color: #4caf50;
+    color: #fff;
+  }
+  .popup {
+    position: relative;
+    width: 320px;
+    height: fit-content;
+    background: #ffffff;
+    box-shadow: 0px 187px 75px rgba(0, 0, 0, 0.01),
+      0px 105px 63px rgba(0, 0, 0, 0.05), 0px 47px 47px rgba(0, 0, 0, 0.09),
+      0px 12px 26px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 13px;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: #ecf1fd;
+    box-shadow: 0px 0.5px 0.5px #efefef, 0px 1px 0.5px rgba(239, 239, 239, 0.5);
+    border-radius: 5px;
+  }
+
+  .note {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .title {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 24px;
+    color: #2b2b2f;
+  }
+
+  .subtitle {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 18px;
+    color: #5f5d6b;
+  }
+
+  .input_field {
+    width: 100%;
+    height: 42px;
+    padding: 0 0 0 12px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid #e5e5e5;
+    filter: drop-shadow(0px 1px 0px #efefef)
+      drop-shadow(0px 1px 0.5px rgba(239, 239, 239, 0.5));
+    transition: all 0.3s cubic-bezier(0.15, 0.83, 0.66, 1);
+  }
+
+  .input_field:focus {
+    border: 1px solid transparent;
+    box-shadow: 0px 0px 0px 1px #2b2b2f;
+    background-color: transparent;
+  }
+
+  .form button.submit {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 18px;
+    gap: 10px;
+    width: 100%;
+    height: 42px;
+    background: linear-gradient(180deg, #4480ff 0%, #115dfc 50%, #0550ed 100%);
+    box-shadow: 0px 0.5px 0.5px #efefef, 0px 1px 0.5px rgba(239, 239, 239, 0.5);
+    border-radius: 5px;
+    border: 0;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 15px;
+    color: #ffffff;
+  }
+  footer {
+    display: flex;
+    justify-content: center;
+  }
+</style>
+
+<script>
+  function toggleTheme() {
+    document.body.classList.toggle("dark-theme");
+  }
+
+  function showLoader() {
+    const loader = document.createElement("div");
+    loader.classList.add("loader");
+    loader.style.position = "fixed";
+    loader.style.left = "50%";
+    loader.style.top = "50%";
+    loader.style.transform = "translate(-50%, -50%)";
+    document.body.appendChild(loader);
+    return loader;
+  }
+
+  function hideLoader(loader) {
+    if (loader) {
+      document.body.removeChild(loader);
+    }
+  }
+
+  function onSubmit(event) {
+    event.preventDefault();
+    const loader = showLoader();
+    setTimeout(() => {
+      hideLoader(loader);
+    }, 2000);
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const loader = showLoader();
+    const form = document.querySelector("form");
+    form.addEventListener("submit", onSubmit);
+    setTimeout(() => {
+      hideLoader(loader);
+    }, 2000);
+  });
+</script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Formular</title>
+  <form>
+    <h2>Detalii personale</h2>
+    <div class="form-group">
+      <label for="nume">Nume:</label>
+      <input type="text" id="nume" name="nume" required />
+    </div>
+    <div class="form-group">
+      <label for="prenume">Prenume:</label>
+      <input type="text" id="prenume" name="prenume" required />
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required />
+    </div>
+    <div class="form-group">
+      <label for="telefon">Telefon:</label>
+      <input
+        type="tel"
+        id="telefon"
+        name="telefon"
+        pattern="[0-9]{4}-[0-9]{3}-[0-9]{3}"
+        required
+      />
+      <small
+        >Introduceți numărul de telefon în formatul clasic, de genul
+        0758-895-184.</small
+      >
+    </div>
+
+    <h2>Adresă</h2>
+    <div class="form-group">
+      <label for="adresa">Adresa:</label>
+      <input type="text" id="adresa" name="adresa" required />
+    </div>
+    <div class="form-group">
+      <label for="oras">Oraș:</label>
+      <input type="text" id="oras" name="oras" required />
+    </div>
+    <div class="form-group">
+      <label for="judet">Județ:</label>
+      <select id="judet" name="judet" required>
+        <option value="">Selectați județul</option>
+        <option value="tm">Timiș</option>
+        <option value="ar">Arad</option>
+        <option value="mh">Mehedinți</option>
+        <option value="gj">Gorj</option>
+        <!-- și așa mai departe... -->
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="codPostal">Cod poștal:</label>
+      <input
+        type="text"
+        id="codPostal"
+        name="codPostal"
+        pattern="[0-9]{6}"
+        required
+      />
+      <small
+        >Introduceți codul poștal în formatul clasic, de genul 225200.</small
+      >
+    </div>
+    <h2>Informații despre plată</h2>
+    <div class="form-group">
+      <label for="numarCard">Număr card:</label>
+      <input
+        type="text"
+        id="numarCard"
+        name="numarCard"
+        pattern="[0-9]{16}"
+        required
+      />
+      <small
+        >Introduceți numărul cardului în formatul 1234 5678 9012 3456.</small
+      >
+    </div>
+    <div class="form-group">
+      <label for="expirareCard">Data expirării:</label>
+      <input
+        type="text"
+        id="expirareCard"
+        name="expirareCard"
+        placeholder="MM/YY"
+        pattern="(0[1-9]|1[0-2])\/[0-9]{2}"
+        required
+      />
+      <small>Introduceți data expirării cardului în formatul MM/YY.</small>
+    </div>
+    <div class="form-group">
+      <label for="codSecuritate">Cod securitate:</label>
+      <input
+        type="text"
+        id="codSecuritate"
+        name="codSecuritate"
+        pattern="[0-9]{3}"
+        required
+      />
+      <small
+        >Introduceți codul de securitate al cardului format din 3 cifre.</small
+      >
+    </div>
+    <h2>Comentarii</h2>
+    <div class="form-group">
+      <label for="comentarii">Comentarii:</label>
+      <textarea id="comentarii" name="comentarii" rows="5"></textarea>
+    </div>
+    <button type="submit">Trimite comanda</button>
+  </form>
+</head>
+<body>
+  <button
+    onclick="toggleTheme()"
+    style="position: fixed; left: 10px; top: 10px"
+  >
+    Schimba tema
+  </button>
+</body>
+<footer>
+  <div class="popup">
+    <form class="form">
+      <div class="icon">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 34 34"
+          height="34"
+          width="34"
+        >
+          <path
+            stroke-linejoin="round"
+            stroke-width="2.5"
+            stroke="#115DFC"
+            d="M7.08385 9.91666L5.3572 11.0677C4.11945 11.8929 3.50056 12.3055 3.16517 12.9347C2.82977 13.564 2.83226 14.3035 2.83722 15.7825C2.84322 17.5631 2.85976 19.3774 2.90559 21.2133C3.01431 25.569 3.06868 27.7468 4.67008 29.3482C6.27148 30.9498 8.47873 31.0049 12.8932 31.1152C15.6396 31.1838 18.3616 31.1838 21.1078 31.1152C25.5224 31.0049 27.7296 30.9498 29.331 29.3482C30.9324 27.7468 30.9868 25.569 31.0954 21.2133C31.1413 19.3774 31.1578 17.5631 31.1639 15.7825C31.1688 14.3035 31.1712 13.564 30.8359 12.9347C30.5004 12.3055 29.8816 11.8929 28.6437 11.0677L26.9171 9.91666"
+          ></path>
+          <path
+            stroke-linejoin="round"
+            stroke-width="2.5"
+            stroke="#115DFC"
+            d="M2.83331 14.1667L12.6268 20.0427C14.7574 21.3211 15.8227 21.9603 17 21.9603C18.1772 21.9603 19.2426 21.3211 21.3732 20.0427L31.1666 14.1667"
+          ></path>
+          <path
+            stroke-width="2.5"
+            stroke="#115DFC"
+            d="M7.08331 17V8.50001C7.08331 5.82872 7.08331 4.49307 7.91318 3.66321C8.74304 2.83334 10.0787 2.83334 12.75 2.83334H21.25C23.9212 2.83334 25.2569 2.83334 26.0868 3.66321C26.9166 4.49307 26.9166 5.82872 26.9166 8.50001V17"
+          ></path>
+          <path
+            stroke-linejoin="round"
+            stroke-linecap="round"
+            stroke-width="2.5"
+            stroke="#115DFC"
+            d="M14.1667 14.1667H19.8334M14.1667 8.5H19.8334"
+          ></path>
+        </svg>
+      </div>
+      <div class="note">
+        <label class="title">Abonează-te pentru noutăți!</label>
+        <span class="subtitle"
+          >Abonează-te la acest newsletter săptămânal pentru a fi la curent cu
+          ce se întâmâplă!</span
+        >
+      </div>
+      <input
+        placeholder="Email-ul tău..."
+        title="Enter your e-mail"
+        name="email"
+        type="email"
+        class="input_field"
+      />
+      <button class="submit">Trimite</button>
+    </form>
+  </div>
+</footer>
+```

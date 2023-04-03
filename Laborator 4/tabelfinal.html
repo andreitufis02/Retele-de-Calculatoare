@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Student Table</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        margin-top: 20px;
+        font-family: Arial, sans-serif;
+        border: 2px solid #ddd;
+        width: 100%;
+        border: #4CAF50;
+      }
+      th, td {
+        padding: 10px;
+        text-align: center;
+        border: 1px solid #ddd;
+      }
+      th {
+        background-color: #f2f2f2;
+        color: #333;
+        font-weight: bold;
+      }
+      td {
+        background-color: white;
+        color: #333;
+      }
+      tr:nth-child(even) td {
+        background-color: #f2f2f2;
+      }
+      .zoom {
+        transition: transform .2s;
+      }
+      .zoom:hover {
+        transform: scale(1.5);
+      }
+      .btn {
+        display: inline-block;
+        background-color: #4CAF50;
+        color: white;
+        padding: 8px 12px;
+        cursor: pointer;
+        border: none;
+        border-radius: 4px;
+      }
+      .btn:hover {
+        background-color: #3e8e41;
+      }
+      .hidden {
+        display: none;
+      }
+      .edit-input {
+        width: 100%;
+        padding: 8px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+      }
+      .edit-btn {
+        background-color: #008CBA;
+        color: white;
+        padding: 8px 12px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      .edit-btn:hover {
+        background-color: #006380;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th>Nr. crt.</th>
+          <th>Nume</th>
+          <th>Prenume</th>
+          <th>An</th>
+          <th>Specializare</th>
+          <th>Grupa</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <img src="https://icon2.cleanpng.com/20180702/xc/kisspng-number-sticker-image-scanner-numerical-digit-5b3aebab73f102.7798859815305880754749.jpg" width="70" height="70" class="zoom">
+          </td>
+          <td>Tufis</td>
+          <td>Andrei</td>
+          <td>2</td>
+          <td>IE</td>
+          <td>4</td>
+          <td>
+            <button class="btn edit-btn" onclick="editRow(this)">Editeaza</button>
+            <button class="btn" onclick="deleteRow(this)">Sterge</button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <img src="https://e7.pngegg.com/pngimages/204/114/png-clipart-logo-brand-pattern-number-2-angle-text-thumbnail.png" width="70" height="70" class="zoom">
+          </td>
+          <td>Ionescu</td>
+          <td>Mihai</td>
+          <td>2</td>
+          <td>CIG</td>
+          <td>2</td>
+          <td>
+            <button class="btn edit-btn" onclick="editRow(this)">Editeaza</button>
+            <button class="btn" onclick="deleteRow(this)">Sterge</button>
+          </td>
+        <tr>
+            <td>
+                <img src="data:image/png;base64,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" width="70" height="70" class="zoom">  
+            </td>
+            <td>Popescu</td>
+            <td>Ana</td>
+            <td>3</td>
+            <td>IA</td>
+            <td>5</td>
+            <td>
+              <button class="btn edit-btn" onclick="editRow(this)">Editeaza</button>
+              <button class="btn" onclick="deleteRow(this)">Sterge</button>
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="7">Numar total de studenti: <span id="total"></span></td>
+          </tr>
+          <tr>
+            <td colspan="7">
+              <button class="btn" onclick="addRow()">Adauga student</button>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+      <div id="modal" class="hidden">
+        <form>
+          <label for="name">Nume:</label>
+          <input type="text" id="name" class="edit-input">
+          <br>
+          <label for="surname">Prenume:</label>
+          <input type="text" id="surname" class="edit-input">
+          <br>
+          <label for="year">An:</label>
+          <input type="text" id="year" class="edit-input">
+          <br>
+          <label for="major">Specializare:</label>
+          <input type="text" id="major" class="edit-input">
+          <br>
+          <label for="group">Grupa:</label>
+          <input type="text" id="group" class="edit-input">
+          <br>
+          <button type="button" class="btn edit-btn" onclick="saveRow()">Save</button>
+          <button type="button" class="btn" onclick="closeModal()">Cancel</button>
+        </form>
+      </div>
+      <script>
+        var modal = document.getElementById("modal");
+        var rowIndex = -1;
+      
+        function countStudents() {
+          var table = document.getElementsByTagName("table")[0];
+          var rowCount = table.rows.length - 2; // exclude the header and footer rows
+          document.getElementById("total").innerHTML = rowCount;
+        }
+      
+        function addRow() {
+          modal.classList.remove("hidden");
+          clearModalInputs();
+        }
+      
+        function editRow(button) {
+          modal.classList.remove("hidden");
+          rowIndex = button.parentNode.parentNode.rowIndex;
+          fillModalInputs(rowIndex);
+        }
+      
+        function deleteRow(button) {
+          var row = button.parentNode.parentNode;
+          row.parentNode.removeChild(row);
+          countStudents();
+        }
+      
+        function clearModalInputs() {
+          document.getElementById("name").value = "";
+          document.getElementById("surname").value = "";
+          document.getElementById("year").value = "";
+          document.getElementById("major").value = "";
+          document.getElementById("group").value = "";
+        }
+      
+        function fillModalInputs(rowIndex) {
+          var table = document.getElementsByTagName("table")[0];
+          var row = table.rows[rowIndex];
+          document.getElementById("name").value = row.cells[1].innerHTML;
+          document.getElementById("surname").value = row.cells[2].innerHTML;
+          document.getElementById("year").value = row.cells[3].innerHTML;
+          document.getElementById("major").value = row.cells[4].innerHTML;
+          document.getElementById("group").value = row.cells[5].innerHTML;
+        }
+
+function saveRow() {
+  var table = document.getElementsByTagName("table")[0];
+  var name = document.getElementById("name").value;
+  var surname = document.getElementById("surname").value;
+  var year = document.getElementById("year").value;
+  var major = document.getElementById("major").value;
+  var group = document.getElementById("group").value;
+  if (rowIndex >= 0) { // editing an existing row
+    var row = table.rows[rowIndex];
+    row.cells[1].innerHTML = name;
+    row.cells[2].innerHTML = surname;
+    row.cells[3].innerHTML = year;
+    row.cells[4].innerHTML = major;
+    row.cells[5].innerHTML = group;
+    rowIndex = -1;
+  } else { // adding a new row
+    var rowCount = table.rows.length - 2; // exclude the header and footer rows
+    var newRow = table.insertRow(-1);
+    newRow.innerHTML = '<td>' + (rowCount + 1) + '</td>' +
+      '<td>' + name + '</td>' +
+      '<td>' + surname + '</td>' +
+      '<td>' + year + '</td>' +
+      '<td>' + major + '</td>' +
+      '<td>' + group + '</td>' +
+      '<td><button class="btn edit-btn" onclick="editRow(this)">Edit</button>' +
+      '<button class="btn" onclick="deleteRow(this)">Delete</button></td>';
+  }
+  closeModal();
+  countStudents();
+}
+
+function closeModal() {
+  modal.classList.add("hidden");
+  clearModalInputs();
+}
+</script>
+    

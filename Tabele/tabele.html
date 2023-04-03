@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tabel exemplu 1</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+			background-color: #f7f7f7;
+			color: #333;
+		}
+		.container {
+			max-width: 800px;
+			margin: 0 auto;
+			padding: 30px;
+			background-color: #fff;
+			border-radius: 10px;
+			box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+		}
+		h1 {
+			text-align: center;
+			margin: 0 0 30px;
+		}
+		table {
+			width: 100%;
+			border-collapse: collapse;
+			margin-bottom: 20px;
+			background-color: #fff;
+			overflow-x: auto;
+			display: block;
+		}
+		th, td {
+			padding: 10px;
+			text-align: left;
+			border-bottom: 1px solid #ddd;
+		}
+		th {
+			background-color: #f2f2f2;
+			position: sticky;
+			top: 0;
+			z-index: 1;
+		}
+		tr:nth-child(even) {
+			background-color: #f2f2f2;
+		}
+		td:hover {
+			background-color: #ddd;
+		}
+		@media (max-width: 600px) {
+			table {
+				display: block;
+				white-space: nowrap;
+				overflow-x: auto;
+			}
+			th, td {
+				display: inline-block;
+				vertical-align: top;
+				text-align: left;
+				border: none;
+			}
+			td:first-child {
+				display: block;
+				text-align: center;
+				background-color: #f2f2f2;
+				font-weight: bold;
+				padding: 10px;
+				margin-left: -10px;
+				margin-right: -10px;
+			}
+			td:not(:first-child) {
+				display: block;
+				margin-left: 100px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Tabel exemplu 1</h1>
+		<table>
+			<thead>
+				<tr>
+					<th>Nume</th>
+					<th>Mail</th>
+					<th>Telefon</th>
+					<th>Adresa</th>
+					<th>Judet</th>
+					<th>Oras</th>
+					<th>Cod postal</th>
+					<th>Tara</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Andrei Tufis</td>
+					<td>andrei.tufis@e-uvt.ro</td>
+					<td>0758 895 184</td>
+					<td>Aleea Studentilor, 12</td>
+					<td>Timis</td>
+					<td>Timisoara</td>
+					<td>220047</td>
+					<td>Romania</td>
+				</tr>
+				<tr>
+					<td>Bogdan Vadasan</td>
+					<td>bogdan.vadasan@e-uvt.ro</td>
+					<td>0742 069 337</td>
+					<td>Boul Rosu</td>
+                    <td>Arad</td>
+                    <td>Arad</td>
+                    <td>691337</td>
+                    <td>Romania</td>
+                    </tr>
+                    <tr>
+                    <td>Adrian Silvaseanu</td>
+                    <td>adi_aditzu_romantiku_incurabil@ceau.com</td>
+                    <td>0769 696 969</td>
+                    <td>Aleea Tinerilor</td>
+                    <td>Timis</td>
+                    <td>Giarmata</td>
+                    <td>691337</td>
+                    <td>Romania</td>
+                    </tr>
+                    <tr>
+                    <td>Alice Brown</td>
+                    <td>abrown@example.com</td>
+                    <td>(456) 789-0123</td>
+                    <td>12 Oak Ave</td>
+                    <td>Smallville</td>
+                    <td>NY</td>
+                    <td>23456</td>
+                    <td>USA</td>
+                    </tr>
+                    <tr>
+                    <td>Sam Lee</td>
+                    <td>samlee@example.com</td>
+                    <td>(567) 890-1234</td>
+                    <td>345 Pine St</td>
+                    <td>Bigtown</td>
+                    <td>TX</td>
+                    <td>34567</td>
+                    <td>USA</td>
+                    </tr>
+                    <tr>
+                    <td>Maria Garcia</td>
+                    <td>mariagarcia@example.com</td>
+                    <td>(678) 901-2345</td>
+                    <td>678 Maple Dr</td>
+                    <td>Smallville</td>
+                    <td>NY</td>
+                    <td>23456</td>
+                    <td>USA</td>
+                    </tr>
+                    <tr>
+                    <td>Carlos Perez</td>
+                    <td>carlosperez@example.com</td>
+                    <td>(789) 012-3456</td>
+                    <td>901 Oak St</td>
+                    <td>Bigtown</td>
+                    <td>TX</td>
+                    <td>34567</td>
+                    <td>USA</td>
+                    </tr>
+                    <tr>
+                    <td>Mohammed Ahmed</td>
+                    <td>mohammedahmed@example.com</td>
+                    <td>(012) 345-6789</td>
+                    <td>12 Elm Ave</td>
+                    <td>Smallville</td>
+                    <td>NY</td>
+                    <td>23456</td>
+                    <td>USA</td>
+                    </tr>
+                    <tr>
+                    <td>Maria Rodriguez</td>
+                    <td>mariarodriguez@example.com</td>
+                    <td>(123) 456-7890</td>
+                    <td>345 Oak St</td>
+                    <td>Bigtown</td>
+                    <td>TX</td>
+                    <td>34567</td>
+                    <td>USA</td>
+                    </tr>
+                    <tr>
+                    <td>Ahmed Ali</td>
+                    <td>ahmedali@example.com</td>
+                    <td>(234) 567-8901</td>
+                    <td>678 Maple Dr</td>
+                    <td>Smallville</td>
+                    <td>NY</td>
+                    <td>23456</td>
+                    <td>USA</td>
+                    </tr>
+                    <tr>
+                    <td>Yasmin Khan</td
+					<td>yasminkhan@example.com</td>
+					<td>(345) 678-9012</td>
+					<td>901 Pine St</td>
+					<td>Bigtown</td>
+					<td>TX</td>
+					<td>34567</td>
+					<td>USA</td>
+				</tr>
+			</tbody>
+		</table>
+		<p>Acesta este un exemplu de tabel complex care demonstrează o varietate de caracteristici HTML și CSS. Acesta include designul receptiv, derularea, efecte de hover și multe altele.</p>
+	</div>
+</body>
+</html>                        

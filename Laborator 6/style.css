@@ -1,0 +1,160 @@
+/* Resetarea stilurilor implicite ale elementelor HTML */
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+/* Stilizarea fontului si a culorilor */
+body {
+	font-family: Arial, sans-serif;
+	font-size: 16px;
+	line-height: 1.5;
+	color: #333;
+}
+
+/* Stilizarea antetului */
+.header {
+/* Definirea fundalului si a dimensiunilor */
+background-color: #f2f2f2;
+height: 500px;
+position: relative;
+}
+
+/* Stilizarea imaginii de profil */
+.avatar {
+background-image: url('https://via.placeholder.com/150');
+background-size: cover;
+border-radius: 50%;
+height: 150px;
+width: 150px;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+border: 5px solid white;
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Stilizarea titlului si a textului de sub imaginea de profil */
+.header h1 {
+font-size: 36px;
+margin-top: 30px;
+}
+
+.header p {
+font-size: 18px;
+margin-top: 10px;
+}
+
+/* Stilizarea continutului */
+.content {
+display: flex;
+max-width: 1200px;
+margin: 0 auto;
+margin-top: -75px;
+padding: 50px;
+background-color: white;
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Stilizarea sectiunii din stanga */
+.left {
+flex-basis: 60%;
+padding-right: 50px;
+}
+
+/* Stilizarea sectiunii din dreapta */
+.right {
+flex-basis: 40%;
+}
+
+/* Stilizarea titlurilor de sectiune */
+h2 {
+font-size: 24px;
+margin-top: 30px;
+}
+
+/* Stilizarea listelor de sectiune */
+ul {
+margin-top: 10px;
+}
+
+li {
+margin-bottom: 10px;
+}
+
+li:before {
+content: '\2022';
+margin-right: 10px;
+}
+
+/* Stilizarea proiectelor */
+.project {
+margin-top: 30px;
+}
+
+.project h3 {
+font-size: 20px;
+margin-bottom: 10px;
+}
+
+.project p {
+margin-bottom: 10px;
+}
+
+.project a {
+display: inline-block;
+background-color: #4CAF50;
+color: white;
+padding: 10px 20px;
+border: none;
+border-radius: 5px;
+margin-top: 10px;
+}
+
+/* Stilizarea butonului de scroll */
+.scroll-btn {
+position: fixed;
+bottom: 50px;
+right: 50px;
+}
+
+.scroll-btn a {
+display: inline-block;
+background-color: #4CAF50;
+color: white;
+padding: 10px 20px;
+border: none;
+border-radius: 5px;
+text-decoration: none;
+}
+
+/* Stilizarea animatiei de scroll */
+.scroll-btn a:hover {
+background-color: #333;
+}
+
+.scroll-btn a:before {
+content: '\2191';
+margin-right: 10px;
+}
+
+.scroll-btn a:hover:before {
+animation: scroll-up 0.5s linear infinite;
+}
+
+@keyframes scroll-up {
+
+    0% {
+transform: translateY(0);
+}
+
+50% {
+	transform: translateY(-10px);
+}
+
+100% {
+	transform: translateY(0);
+}
+}

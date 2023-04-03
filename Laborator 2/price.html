@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pricing Plans</title>
+	<meta charset="UTF-8">
+	<style>
+		/* CSS Styles */
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f2f2f2;
+			margin: 0;
+			padding: 0;
+		}
+		
+		.container {
+			max-width: 800px;
+			margin: 0 auto;
+			padding: 20px;
+		}
+		
+		.pricing-table {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			margin: 0 -10px;
+		}
+		
+		.pricing-table .plan {
+			width: calc(50% - 20px);
+			padding: 10px;
+			background-color: #fff;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			text-align: center;
+			margin-bottom: 30px;
+			transition: all 0.3s ease-in-out;
+		}
+		
+		.pricing-table .plan:hover {
+			transform: translateY(-10px);
+			box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+		}
+		
+		.pricing-table .plan h3 {
+			font-size: 24px;
+			color: #333;
+			margin: 0 0 10px;
+		}
+		
+		.pricing-table .plan .price {
+			font-size: 36px;
+			color: #333;
+			margin: 0 0 20px;
+		}
+		
+		.pricing-table .plan ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+		
+		.pricing-table .plan li {
+			font-size: 16px;
+			line-height: 1.5;
+			color: #666;
+			margin: 10px 0;
+		}
+		
+		.pricing-table .plan .cta {
+			display: block;
+			padding: 10px 20px;
+			background-color: #333;
+			color: #fff;
+			text-decoration: none;
+			border-radius: 5px;
+			margin-top: 20px;
+			transition: all 0.3s ease-in-out;
+		}
+		
+		.pricing-table .plan .cta:hover {
+			background-color: #fff;
+			color: #333;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		}
+		
+		@media screen and (max-width: 768px) {
+			.pricing-table .plan {
+				width: 100%;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Pricing Plans</h1>
+		<div class="pricing-table">
+			<div class="plan">
+				<h3>Basic plan</h3>
+				<div class="price">50 ron/luna</div>
+				<ul>
+					<li>1 utilizator</li>
+					<li>5GB spatiu de stocare</li>
+					<li>24/7 support</li>
+				</ul>
+				<a href="inscriere.html" class="cta">Inscrie-te!</a>
+			</div
+            

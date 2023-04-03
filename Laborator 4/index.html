@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Exemplu HTML cu tabele și liste</title>
+</head>
+<body>
+
+	<!-- Tabel cu antet și mai multe rânduri -->
+	<table border="1">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Nume</th>
+				<th>Prenume</th>
+				<th>Email</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td>Popescu</td>
+				<td>Mihai</td>
+				<td>mihai.popescu@gmail.com</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>Ionescu</td>
+				<td>Andreea</td>
+				<td>andreea.ionescu@yahoo.com</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<!-- Listă neordonată cu elemente indentate -->
+	<ul>
+		<li>Element 1</li>
+		<li>Element 2
+			<ul>
+				<li>Sub-element 1</li>
+				<li>Sub-element 2</li>
+			</ul>
+		</li>
+		<li>Element 3</li>
+	</ul>
+
+	<!-- Tabel cu mai multe celule și rânduri, stilizat cu CSS -->
+	<table class="styled-table" border="1">
+		<thead>
+			<tr>
+				<th>Produs</th>
+				<th>Cantitate</th>
+				<th>Preț</th>
+				<th>Subtotal</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Telefon mobil</td>
+				<td>2</td>
+				<td>1000 RON</td>
+				<td>2000 RON</td>
+			</tr>
+			<tr>
+				<td>Tabletă</td>
+				<td>1</td>
+				<td>1500 RON</td>
+				<td>1500 RON</td>
+			</tr>
+			<tr>
+				<td>Laptop</td>
+				<td>1</td>
+				<td>3000 RON</td>
+				<td>3000 RON</td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td colspan="3">Total:</td>
+				<td>6500 RON</td>
+			</tr>
+		</tfoot>
+	</table>
+
+	<!-- Listă ordonată cu elemente stilizate cu CSS -->
+	<ol class="styled-list">
+		<li>Element 1</li>
+		<li>Element 2</li>
+		<li>Element 3</li>
+	</ol>
+
+	<!-- Stiluri CSS pentru tabel și listă -->
+	<style>
+		table.styled-table {
+			border-collapse: collapse;
+			width: 100%;
+		}
+
+		table.styled-table th, table.styled-table td {
+			padding: 8px;
+			text-align: left;
+			border-bottom: 1px solid #ddd;
+		}
+
+		table.styled-table th {
+			background-color: #f2f2f2;
+		}
+
+		ol.styled-list {	list-style-type: none;
+		padding-left: 0;
+	}
+
+	ol.styled-list li {
+		padding: 5px;
+		background-color: #f2f2f2;
+		margin-bottom: 5px;
+		border-radius: 5px;
+		box-shadow: 2px 2px 5px #ccc;
+	}
+</style>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Listă cu activități</title>
+    <style>
+      ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+      }
+      li {
+        margin: 10px 0;
+        padding: 10px;
+        background-color: #f2f2f2;
+        border-radius: 5px;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      li button {
+        background-color: #f44336;
+        color: #fff;
+        border: none;
+        padding: 8px;
+        border-radius: 3px;
+        margin-left: 10px;
+        cursor: pointer;
+      }
+      input[type="text"] {
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Listă cu activități</h2>
+    <input type="text" placeholder="Adaugă" id="input" />
+    <button onclick="addItem()">Adaugă</button>
+    <ul id="list">
+      <li>
+        Mergi la cumpărături<button onclick="deleteItem(this)">Delete</button>
+      </li>
+      <li>
+        Scoate câinele la plimbare<button onclick="deleteItem(this)">
+          Delete
+        </button>
+      </li>
+      <li>
+        Termină tema la Rețele de Calculatoare<button
+          onclick="deleteItem(this)"
+        >
+          Delete
+        </button>
+      </li>
+    </ul>
+    <script>
+      function addItem() {
+        var input = document.getElementById("input");
+        var list = document.getElementById("list");
+        var li = document.createElement("li");
+        var text = document.createTextNode(input.value);
+        li.appendChild(text);
+        var button = document.createElement("button");
+        button.innerHTML = "Delete";
+        button.onclick = function () {
+          deleteItem(this);
+        };
+        li.appendChild(button);
+        list.appendChild(li);
+        input.value = "";
+      }
+
+      function deleteItem(button) {
+        var li = button.parentNode;
+        var ul = li.parentNode;
+        ul.removeChild(li);
+      }
+    </script>
+  </body>
+</html>
