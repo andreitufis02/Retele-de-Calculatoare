@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chestionar</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <h1>Chestionar</h1>
+    <form action="pagina2.html">
+      <div class="intrebare">
+        <label for="nume">1. Care este numele tău?</label>
+        <input type="text" id="nume" name="nume" />
+      </div>
+      <div class="intrebare">
+        <label for="email">2. Care este adresa ta de e-mail?</label>
+        <input type="text" id="email" name="email" />
+      </div>
+      <div class="intrebare">
+        <label for="timp_pc"
+          >3. Cât timp petreci în medie pe zi în fața calculatorului?</label
+        >
+        <input type="text" id="timp_pc" name="timp_pc" />
+      </div>
+      <div class="intrebare">
+        <label for="ocupatie">4. Care este ocupatia ta?</label>
+        <input type="text" id="ocupatie" name="ocupatie" />
+      </div>
+      <div class="intrebare">
+        <label for="limba">5. Care este limba ta maternă?</label>
+        <select id="limba" name="limba">
+          <option value="engleza">Engleză</option>
+          <option value="franceza">Franceză</option>
+          <option value="spaniola">Spaniolă</option>
+          <option value="germana">Germană</option>
+        </select>
+      </div>
+      <div class="intrebare">
+        <label for="somn"
+          >6. Câte ore de somn obișnuiești să ai pe noapte?</label
+        >
+        <select id="somn" name="somn">
+          <option value="menos_4">Sub 4 ore</option>
+          <option value="4_6">Intre 4 si 6 ore</option>
+          <option value="6_8">Intre 6 si 8 ore</option>
+          <option value="mas_8">Peste 8 ore</option>
+        </select>
+      </div>
+      <div class="intrebare">
+        <label for="mediu">7. În ce mediu locuiești?</label>
+        <select id="mediu" name="mediu">
+          <option value="oras_mare">Oraș mare</option>
+          <option value="oras_mic">Oraș mic</option>
+          <option value="sat">Sat</option>
+          <option value="alta">Altul</option>
+        </select>
+      </div>
+      <div class="intrebare">
+        <label for="culoare">8. Care este culoarea ta preferată?</label>
+        <input type="text" id="culoare" name="culoare" />
+      </div>
+      <div class="intrebare">
+        <label for="hobby">9. Care este hobby-ul tău preferat?</label>
+        <input type="text" id="hobby" name="hobby" />
+      </div>
+      <div class="intrebare">
+        <label
+          >10. Care dintre următoarele activități îți place cel mai mult?</label
+        >
+        <input
+          type="checkbox"
+          id="activitate1"
+          name="activitate1"
+          value="citit"
+        />
+        <label for="activitate1">Citit</label><br />
+        <input
+          type="checkbox"
+          id="activitate2"
+          name="activitate2"
+          value="muzica"
+        />
+        <label for="activitate2">Ascultat muzică</label><br />
+        <input
+          type="checkbox"
+          id="activitate3"
+          name="activitate3"
+          value="sport"
+        />
+        <label for="activitate3">Sport</label><br />
+      </div>
+
+      <input type="submit" value="Pagina urmatoare" />
+      <a href="pagina2.html"></a>
+    </form>
+  </body>
+</html>
